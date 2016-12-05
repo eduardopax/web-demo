@@ -1,5 +1,7 @@
 package com.webdemo.controller;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -27,6 +29,11 @@ public class DataController {
 	public ResponseEntity<Data> generateRandonUser() {
 		Data newData = new Data();
 		newData.setDataCreation(System.nanoTime());
+		try {
+			newData.setHostname(InetAddress.getLocalHost().getHostName());
+		} catch (UnknownHostException e) {
+			newData.setHostname("UNKNOW");
+		}
 		Data data = this.userRepository.save(newData);
 
 		logger.info("Data created:" + data);
