@@ -11,32 +11,32 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.webdemo.entity.User;
-import com.webdemo.repository.UserRepository;
+import com.webdemo.entity.Data;
+import com.webdemo.repository.DataRepository;
 
 @RestController
-@RequestMapping("/rest/user")
-public class UserController {
+@RequestMapping("/rest/data")
+public class DataController {
 
-	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
+	private static final Logger logger = LoggerFactory.getLogger(DataController.class);
 
 	@Autowired
-	private UserRepository userRepository;
+	private DataRepository userRepository;
 
-	@RequestMapping(value = "/generateRandonUser", method = RequestMethod.GET)
-	public ResponseEntity<User> generateRandonUser() {
-		User newUser = new User();
-		newUser.setName("new user " + System.currentTimeMillis());
-		User user = this.userRepository.save(newUser);
+	@RequestMapping(value = "/generateRandonData", method = RequestMethod.GET)
+	public ResponseEntity<Data> generateRandonUser() {
+		Data newData = new Data();
+		newData.setDataCreation(System.nanoTime());
+		Data data = this.userRepository.save(newData);
 
-		logger.info("User created:" + user);
-		return new ResponseEntity<User>(user, HttpStatus.OK);
+		logger.info("Data created:" + data);
+		return new ResponseEntity<Data>(data, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/getAll", method = RequestMethod.GET)
-	public ResponseEntity<List<User>> getAll() {
-		logger.info("get all users requested");
-		return new ResponseEntity<List<User>>(this.userRepository.findAll(), HttpStatus.OK);
+	public ResponseEntity<List<Data>> getAll() {
+		logger.info("get all datas requested");
+		return new ResponseEntity<List<Data>>(this.userRepository.findAll(), HttpStatus.OK);
 	}
 
 }

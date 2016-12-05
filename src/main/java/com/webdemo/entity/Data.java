@@ -6,13 +6,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class User {
+public class Data {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	private String name;
+	private Long dataCreation;
+
+	private String hostname;
 
 	public Long getId() {
 		return id;
@@ -22,17 +24,25 @@ public class User {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getHostname() {
+		return hostname;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setHostname(String hostname) {
+		this.hostname = hostname;
+	}
+
+	public Long getDataCreation() {
+		return dataCreation;
+	}
+
+	public void setDataCreation(Long dataCreation) {
+		this.dataCreation = dataCreation;
 	}
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + "]";
+		return "Data [id=" + id + ", dataCreation=" + dataCreation + ", hostname=" + hostname + "]";
 	}
 
 }
