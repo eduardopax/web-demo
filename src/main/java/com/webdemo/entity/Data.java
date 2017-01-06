@@ -8,41 +8,41 @@ import javax.persistence.Id;
 @Entity
 public class Data {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
-	private Long dataCreation;
+    private Long dataCreation;
 
-	private String hostname;
+    private String hostname;
 
-	public Long getId() {
-		return id;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public String getHostname() {
-		return hostname;
-	}
+    public String getHostname() {
+        return hostname;
+    }
 
-	public void setHostname(String hostname) {
-		this.hostname = hostname;
-	}
+    public void setHostname(String hostname) {
+        this.hostname = hostname;
+    }
 
-	public Long getDataCreation() {
-		return dataCreation;
-	}
+    public Long getDataCreation() {
+        return dataCreation;
+    }
 
-	public void setDataCreation(Long dataCreation) {
-		this.dataCreation = dataCreation;
-	}
+    public void setDataCreation(Long dataCreation) {
+        this.dataCreation = dataCreation;
+    }
 
-	@Override
-	public String toString() {
-		return "Data [id=" + id + ", dataCreation=" + dataCreation + ", hostname=" + hostname + "]";
-	}
+    @Override
+    public String toString() {
+        return "Data [id=" + id + ", dataCreation=" + dataCreation + ", hostname=" + hostname + "]";
+    }
 
 }
