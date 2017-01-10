@@ -26,5 +26,7 @@ ENV HOST LOCALHOST
 ENV PORT 8080
 
 EXPOSE $PORT
+
+RUN echo $(ls | grep webdemo )
 		
-ENTRYPOINT ["sh", "-c", "java -jar webdemo.war"]
+ENTRYPOINT ["sh", "-c", "java -jar $(ls | grep webdemo )"]
