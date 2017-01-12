@@ -1,25 +1,12 @@
-FROM	eduardopax/debian8-oracle8jdk-maven-git
+FROM	openjdk:8-jdk-alpine
 
 MAINTAINER Eduardo Lealdini Ramalho <eduardopax@gmail.com>
 
-RUN		mkdir /app
+ENV WAR_FILE webdemo-1.0.war
 
-WORKDIR	/app
+ADD target/$WAR_FILE /usr/src/
 
-RUN		git clone https://github.com/eduardopax/web-demo.git
-
-WORKDIR	/app/web-demo
-
-RUN 	mvn install -Dmaven.test.skip=true
-
-RUN		cp target/$(ls target | grep webdemo | grep .war | grep -v original) /app
-
-WORKDIR	/app
-
-# Clean
-RUN		apt-get clean all && \
-		rm -rf /app/web-demo &&\
-		rm -rf /root/.m2
+WORKDIR /usr/src/
 
 ENV HOST LOCALHOST
 
@@ -27,4 +14,4 @@ ENV PORT 8080
 
 EXPOSE $PORT
 
-ENTRYPOINT ["sh", "-c", "java -jar $(ls | grep webdemo )"]
+ENTRYPOINT ["sh", "-c", "java -jar $WAR_FILE"]
