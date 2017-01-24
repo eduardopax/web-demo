@@ -1,12 +1,8 @@
-FROM	openjdk:8-jdk-alpine
-
-MAINTAINER Eduardo Lealdini Ramalho <eduardopax@gmail.com>
+FROM frolvlad/alpine-oraclejdk8:slim
 
 ENV WAR_FILE webdemo-1.0.war
 
-ADD target/$WAR_FILE /usr/src/
-
-WORKDIR /usr/src/
+ADD target/$WAR_FILE /app.jar
 
 ENV HOST LOCALHOST
 
@@ -14,4 +10,6 @@ ENV PORT 8080
 
 EXPOSE $PORT
 
-ENTRYPOINT ["sh", "-c", "java -jar $WAR_FILE"]
+ENV JAVA_OPTS=""
+
+ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -jar /app.jar" ]
