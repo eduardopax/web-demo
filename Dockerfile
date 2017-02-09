@@ -2,7 +2,7 @@ FROM frolvlad/alpine-oraclejdk8:slim
 
 ENV WAR_FILE webdemo-1.0.war
 
-ADD target/$WAR_FILE /app.jar
+ADD target/$WAR_FILE /app.war
 
 ENV HOST LOCALHOST
 
@@ -12,4 +12,4 @@ EXPOSE $PORT
 
 ENV JAVA_OPTS=""
 
-ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -jar /app.jar" ]
+ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -jar /app.war" ]
