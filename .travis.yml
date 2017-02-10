@@ -6,7 +6,8 @@ before_install:
  - chmod +x mvnw
  - chmod +x update-download.sh
 after_success:
- # notify Docker Hub to make a new build
+- update-download.sh
+# notify Docker Hub to make a new build
 - >
   [ "$TRAVIS_BRANCH" == "master" ]
   && curl -X POST -H "Content-Type: application/json"
