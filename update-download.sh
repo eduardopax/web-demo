@@ -14,5 +14,5 @@ if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
   echo -e "Done the upload of war file\n"
 
   curl -X POST -H "Content-Type: application/json" --data '{"docker_tag_name": "latest"}'  https://registry.hub.docker.com/u/eduardopax/web-demo/trigger/$DOCKER_HUB_TOKEN/
-  echo -e "Docker hub notified"
+  echo -e "\nDocker hub notified"
 fi

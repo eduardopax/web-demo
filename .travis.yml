@@ -8,6 +8,4 @@ before_install:
  - chmod +x mvnw
  - chmod +x update-download.sh
 after_success:
- - ls
- - pwd
- - ./update-download.sh
+  - ./update-download.sh
