@@ -8,7 +8,7 @@ before_install:
 after_success:
  - ls
  - pwd
- - update-download.sh
+ - ./update-download.sh
  # notify Docker Hub to make a new build
  #- >
  # [ "$TRAVIS_BRANCH" == "master" ]
