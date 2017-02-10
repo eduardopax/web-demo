@@ -1,6 +1,8 @@
 if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
   echo -e "Starting to update the download file\n"
 
+  echo $HOME
+
   cd $HOME
   git config --global user.email "travis@travis-ci.org"
   git config --global user.name "Travis"
