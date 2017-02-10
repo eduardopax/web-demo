@@ -11,5 +11,5 @@ if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
   git commit -m "Travis build $TRAVIS_BUILD_NUMBER pushed to download"
   git push -fq origin download > /dev/null
 
-  echo -e "Done magic with coverage\n"
+  echo -e "Done the upload of war file\n"
 fi

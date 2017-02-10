@@ -14,4 +14,4 @@ EXPOSE $PORT
 
 ENV JAVA_OPTS=""
 
-ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -jar /webdemo-1.0.war" ]
+ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -jar /$WAR_FILE" ]
