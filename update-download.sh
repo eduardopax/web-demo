@@ -5,9 +5,6 @@ if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
   git config --global user.name "Travis"
   git clone --quiet --branch=download https://${GIT_HUB_TOKEN}@github.com/eduardopax/web-demo.git  download > /dev/null
 
-    ls ./download
-    ls ./target
-
   cp -Rf ./target/webdemo-1.0.war ./download
   cd download
   git add -f .
