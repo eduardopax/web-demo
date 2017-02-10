@@ -5,6 +5,8 @@ jdk:
 before_install:
  - chmod +x mvnw
  - chmod +x update-download.sh
+ - ls
+ - pwd
 after_success:
 - update-download.sh
 # notify Docker Hub to make a new build
