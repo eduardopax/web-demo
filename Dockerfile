@@ -6,9 +6,7 @@ ADD https://github.com/eduardopax/web-demo/raw/download/$WAR_FILE /
 
 ENV HOST LOCALHOST
 
-ENV PORT 8080
-
-EXPOSE $PORT
+EXPOSE 8080
 
 ENV JAVA_OPTS=""
 
