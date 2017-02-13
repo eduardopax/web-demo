@@ -10,4 +10,4 @@ EXPOSE 8080
 
 ENV JAVA_OPTS=""
 
-ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -jar /$WAR_FILE" ]
+ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /$WAR_FILE" ]
