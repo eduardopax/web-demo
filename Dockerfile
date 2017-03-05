@@ -1,6 +1,6 @@
 FROM frolvlad/alpine-oraclejdk8:slim
 
-ENV WAR_FILE webdemo-1.0.war
+ENV WAR_FILE web-demo-1.0.war
 
 ADD https://github.com/eduardopax/web-demo/raw/download/$WAR_FILE /
 
